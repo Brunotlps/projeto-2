@@ -6,6 +6,7 @@ def menu():
     print("3. Sair")
 
 while True:
+    
     menu()
     opcao = input("Escolha uma opção: ")
 
@@ -14,11 +15,14 @@ while True:
         email = input("Email: ")
         senha = input("Senha: ")
         cadastrar_usuario(nome, email, senha)
+    
     elif opcao == "2":
         email = input("Email: ")
         senha = input("Senha: ")
         login_usuario(email, senha)
+    
     elif opcao == "3":
         break
+    
     else:
         print("Opção inválida!")

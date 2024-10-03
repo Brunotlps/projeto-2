@@ -9,6 +9,16 @@ Sistema de Login
 -email
 -senha
 
+-----------------------------------------------------------------------------
+
+-> Validações de entrada de dados
+- campos obrigatórios preenchidos
+- formato do email válido
+- força da senha
+- verificar se o email já existe 
+
+-----------------------------------------------------------------------------
+
 -> Tecnologias
 -python
 -poo
