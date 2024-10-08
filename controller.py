@@ -30,7 +30,11 @@ def cadastrar_usuario(nome, email, senha):
     if not validar_email(email):
         print("Email inválido.")
         return
-    
+
+    if session.query(Usuario).filter_by(email=email).first():
+        print("Email já cadastrado.")
+        return
+        
     senha_valida, msg = validar_senha(senha)
     if not senha_valida:
         print(msg)
@@ -44,6 +48,14 @@ def cadastrar_usuario(nome, email, senha):
     print(f'Usuário {novo_usuario.id} cadastrado com sucesso!')
 
 def login_usuario(email, senha):
+
+    if not email or  not senha:
+        print("Email e senha são obrigatórios.")
+        return
+    
+    if not validar_email(email):
+        print("Email inválido.")
+        return
     
     usuario = session.query(Usuario).filter_by(email=email).first()
     if usuario and check_password_hash(usuario.senha, senha):  # Verificando a senha hash
